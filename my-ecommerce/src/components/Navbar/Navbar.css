@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Navbar{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: first baseline;
+
+    background-color: rgb(216, 230, 139);
+    height: 60px;
+   
+   
+}
+
+.Navbar__ul{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin-left: 30%;
+    
+   
+}
+
+.Navbar__ul__li{
+    padding-top: 10px;
+    padding-left: 100%;
+    list-style: none;
+    font-family: sans-serif;
+}
+
+.Logo{
+
+    padding-left: 0;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: oblique;
+}
+
