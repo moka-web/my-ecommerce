@@ -1,5 +1,5 @@
 import './Navbar.css'
-import {Carrito} from '../../carrito/Carrito';
+import {Carrito} from '../carrito/Carrito';
 
 export const Navbar = () =>{
 return (
