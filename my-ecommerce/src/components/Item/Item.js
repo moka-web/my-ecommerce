@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 
-export const Item = (prducto,tipo,imagen,stock,descripcion)=> {
+export const Item = ({Producto,Tipo,Img,Stock,Descripcion})=> {
 
     
     return(
@@ -13,12 +13,10 @@ export const Item = (prducto,tipo,imagen,stock,descripcion)=> {
         <Card style={{ width: '18rem',  }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <ItemCount initial={1}  stock={5}/>
+                <Card.Title>{Producto}</Card.Title>
+                <Card.Title>{Tipo}</Card.Title>
+                <Card.Text>{Descripcion}</Card.Text>
+                <ItemCount initial={1}  stock={Stock}/>
                 <Button variant="primary">Agregar</Button>
             </Card.Body>
            
