@@ -1,23 +1,23 @@
 import { ItemCount } from "../ItemCount/ItemCount"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Link, NavLink } from "react-router-dom"
+import '../Item/Item.css'
 
-
-export const Item = ({Producto,Tipo,Img,Stock,Descripcion})=> {
+export const Item = ({id,Producto,Tipo,Img,Stock,Descripcion})=> {
 
     
     return(
         
         <>
         
-        <Card style={{ width: '18rem',  }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+        <Card className="CardItem shadow" style={{ width: '18rem',  }}>
+            <Card.Img variant="top" src={Img} />
             <Card.Body>
+                <NavLink to={`/item/${id}`}>
                 <Card.Title>{Producto}</Card.Title>
+                </NavLink>
                 <Card.Title>{Tipo}</Card.Title>
-                <Card.Text>{Descripcion}</Card.Text>
-                <ItemCount initial={1}  stock={Stock}/>
-                <Button variant="primary">Agregar</Button>
             </Card.Body>
            
         </Card>

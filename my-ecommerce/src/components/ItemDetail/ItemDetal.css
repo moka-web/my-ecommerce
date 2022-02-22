@@ -1,0 +1,26 @@
+.divBorder{
+    
+
+
+}
+
+.ItemDetail_img{
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+
+}
+
+.ItemDetail_div{
+    margin: 30px;
+}
+
+.ItemCount_div{
+    margin-top: 100px;
+
+}
+
+.ItemDescription_div{
+    margin: 30px;
+
+}
