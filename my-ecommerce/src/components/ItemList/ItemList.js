@@ -4,19 +4,18 @@ import { Link } from "react-router-dom";
 import { ItemDetailContainer } from "../ItemDetailContainer/ItemDetailContainer";
 export const ItemList = ({Productos}) =>{
 
+
+
     return (
         
         
         <div className="container ">
             <div className="row ItemlistFlex">
         {
-        
-        Productos.map(prods=>(
-           
-            (<Item className="col-md-4" {...prods} key={prods.id} />)
-        )
-        )
-        
+
+        Productos.length!==0?Productos.map((prods)=>(<Item className="col-md-4" {...prods} key={prods.id} />))
+        :<h1>Loading...</h1>
+
         }
           
           </div>     
