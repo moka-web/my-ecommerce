@@ -12,7 +12,7 @@ export const ItemCount = ({stock,initial,onAdd}) =>{
        }
     } 
     const substractItem = () =>{
-        if (count > 1){
+        if (count > 0){
             setCount(count-1)
             
         }
@@ -20,11 +20,14 @@ export const ItemCount = ({stock,initial,onAdd}) =>{
 
     return (
 
-        <div>
+        <div className="conatainer">
+            <div className="row">
+            <Button  className="col-md-3" variant="primary" onClick={substractItem}>  -  </Button>
+            <h3 className="col-md-3">{count}</h3>
+            <Button className="col-md-3" variant="primary" onClick={addItem}>  +  </Button>
+            </div>
             
-            <h3>{count}</h3>
-            <Button variant="primary" onClick={substractItem}>disminuir</Button>
-            <Button variant="primary" onClick={addItem}>aumentar</Button>
+            {count>0? <Button onClick={()=>onAdd(count)} variant="primary">Agregar al carrito</Button>:<></>}
         </div>
     )
 }

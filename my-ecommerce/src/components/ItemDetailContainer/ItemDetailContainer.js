@@ -8,13 +8,6 @@ export const ItemDetailContainer = ()=>{
         
         const [myDetail,setMyDetail] = useState()
 
-        const getItemId = ()=>{
-            let item = Productos.find((e)=>{
-                return e.id === Number(id);
-            })
-        }
-
-
         useEffect(()=>{
 
         const getDetail = new Promise ((resolve,reject) =>{
