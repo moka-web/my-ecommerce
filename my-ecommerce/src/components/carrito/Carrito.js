@@ -1,13 +1,13 @@
-//import carrito from '../assets/carrito.png';
+
 import carrito from '../assets/carrito-white.png'
 
 import './Carrito.css'
 
-export const Carrito = () =>{
+export const Carrito = ({count}) =>{
     return(
         <div className=" CartWidget">
             <img src={carrito} className="cart" />
-            <span>0</span>
+            <span className='spanCount'>{count}</span>
         </div>
     )
 

@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button'
+
+
 export const ItemCount = ({stock,initial,onAdd}) =>{
     
     const [count,setCount]  = useState(initial);
-    
+  
     
     const addItem = () =>{
         if (count < stock) {

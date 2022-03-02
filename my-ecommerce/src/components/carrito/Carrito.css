@@ -3,3 +3,8 @@
     position: relative;
     left: 550px;
 }
+
+.spanCount{
+    color: aliceblue;
+    z-index: 2;
+}

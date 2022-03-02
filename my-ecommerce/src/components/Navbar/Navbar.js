@@ -1,32 +1,36 @@
 import './Navbar.css'
 import {Carrito} from '../carrito/Carrito';
 import { NavLink } from 'react-router-dom';
+import { CartContext } from '../../Context/cartContext';
+import { useContext } from 'react';
 
 export const Navbar = () =>{
-return (
+    const {productsCount} = useContext(CartContext);
+   
+    return (
     <header>
         
 
         <nav className="Navbar" >
             <NavLink className="navLogo" to={"/"}>
-            <a className="Logo">Buyers</a>
+            <div className="Logo">Buyers </div>
             </NavLink>
             <ul className="Navbar__ul" >
                 <li className="Navbar__ul__li">    
-                    <NavLink activeClassName="active" to={"/"}>Inicio</NavLink>
+                    <NavLink  to={"/"}>Inicio</NavLink>
                 </li>
                 <li className="Navbar__ul__li" >    
-                    <NavLink activeClassName="active" to={"/category/Bourbon"}>Bourbon</NavLink>
+                    <NavLink  to={"/category/Bourbon"}>Bourbon</NavLink>
                 </li>
                 <li className="Navbar__ul__li" >    
-                    <NavLink activeClassName="active" to={"/category/Scotch"}>Scotch</NavLink>
+                    <NavLink  to={"/category/Scotch"}>Scotch</NavLink>
                 </li>
                 <li className="Navbar__ul__li" >    
-                    <NavLink  activeClassName="active" to={"/category/Irish"}>Irish</NavLink>
+                    <NavLink  to={"/category/Irish"}>Irish</NavLink>
                 </li>
                
             </ul>
-            <Carrito/>
+            <Carrito count={productsCount}/> 
         </nav>
     </header>
 );

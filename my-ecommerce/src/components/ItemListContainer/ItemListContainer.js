@@ -6,7 +6,7 @@ import '../ItemListContainer/ItemListContainer.css'
 export const ItemListContainer = ({greetings}) =>{
 
     const category = useParams();
-    console.log(category.Tipo);
+  
     
     const [myProducts,setMyProducts] = useState([]);
 
