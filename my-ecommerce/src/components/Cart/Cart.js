@@ -2,31 +2,32 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import { CartContext } from "../../Context/cartContext"
-import { useContext } from "react"
+import { Fragment, useContext } from "react"
 
 export const Cart = () =>{
+    const {cartProducts} = useContext(CartContext);
 
 return (
     <>
-                <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-        <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
-            </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-            <ListGroupItem>Cras justo odio</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
-        </ListGroup>
-        <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
-        </Card.Body>
-        </Card>
+
+        {cartProducts.length === 0 ? (<h2>No hay productos agregados!</h2>) :(cartProducts.map((prod)=>{
+            
+            return(
+               <> 
+              <h2>{prod.Producto}</h2>
+              <img src={prod.Img} ></img>
+              <h3>{prod.quantity}</h3>
+              </>
+            )
+            
+            
+            
+            
+            }))}
+           
+        
+        
+       
 
     </>
 )

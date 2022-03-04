@@ -8,20 +8,36 @@ export const CartProvider = ({children})=>{
         const [cartProducts , setCartProducts] = useState([]);
         const [productsCount , setProductsCount] = useState(0)
  
-        const AddQuantityToCart = (number)=>{
-           setProductsCount(  number ) 
+  
+        const addItemsToCart = (item,quantity)=>{
+            if (cartProducts.some(product => product.id === item.id)) {
+                const copyPaste = [...cartProducts];
+                const prodIndex = cartProducts.findIndex(product => product.id === item.id);
+                copyPaste[prodIndex]={
+                    ...copyPaste[prodIndex],
+                    quantity: copyPaste[prodIndex].quantity + quantity,
+                };
+                setCartProducts(copyPaste);
+                setProductsCount(prev => prev + quantity)
+            
+            }else{
+                
+                setCartProducts([...cartProducts,{...item,quantity}])
+                setProductsCount(prev => prev + quantity)}
+         
         }
-        const AddProductToCart = (product)=>{
-           setCartProducts(product)
-        }
-    
-
-
-
         
+        console.log(cartProducts);
+       
+        
+
+
+
+
+
     return( 
 
-        <CartContext.Provider value={{cartProducts,productsCount,AddQuantityToCart,AddProductToCart}}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{cartProducts,productsCount,addItemsToCart}}>{children}</CartContext.Provider>
 
      )
       

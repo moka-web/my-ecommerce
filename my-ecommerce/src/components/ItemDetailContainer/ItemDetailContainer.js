@@ -1,11 +1,11 @@
 import {Productos} from "../../Data/Data"
-import { useState,useEffect, useContext } from "react"
+import { useState,useEffect} from "react"
 import { ItemDetail } from "../ItemDetail/ItemDetail."
 import { useParams } from "react-router-dom"
-import { CartContext } from "../../Context/cartContext"
+
 
 export const ItemDetailContainer = ()=>{
-       const {AddProductToCart,cartProducts} = useContext(CartContext)
+
     
         const {id} = useParams();
 
@@ -30,14 +30,6 @@ export const ItemDetailContainer = ()=>{
             setMyDetail(getId);
         })
         },[id])
-
-        useEffect(()=>{
-            AddProductToCart(myDetail)
-            console.log(cartProducts)
-        })
-
-        
-        
 
     return(
         <div>
