@@ -6,12 +6,12 @@ import { CartContext } from "../../Context/cartContext"
 import { useContext } from "react"
 
 
-export const ItemDetail = ({Producto,Tipo,Descripcion,Img,Stock})=>{
+export const ItemDetail = ({id,Producto,Tipo,Descripcion,Img,Stock})=>{
     const {addItemsToCart,productsCount} = useContext(CartContext);
    
     
     const handleItemCount = (e)=>{
-        addItemsToCart({Producto,Tipo,Descripcion,Img,Stock},e)
+        addItemsToCart({id,Producto,Tipo,Descripcion,Img,Stock},e)
     }
 
    

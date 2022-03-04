@@ -24,12 +24,17 @@ export const CartProvider = ({children})=>{
                 
                 setCartProducts([...cartProducts,{...item,quantity}])
                 setProductsCount(prev => prev + quantity)}
-         
+                
         }
         
-        console.log(cartProducts);
+
        
-        
+        const removeItems = (item) =>{
+
+           const removed = cartProducts.filter(prod => prod.id === item.id)
+            setCartProducts(removed)
+           
+        }
 
 
 
@@ -37,7 +42,7 @@ export const CartProvider = ({children})=>{
 
     return( 
 
-        <CartContext.Provider value={{cartProducts,productsCount,addItemsToCart}}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{cartProducts,productsCount,addItemsToCart,removeItems}}>{children}</CartContext.Provider>
 
      )
       

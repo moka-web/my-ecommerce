@@ -5,7 +5,7 @@ import { CartContext } from "../../Context/cartContext"
 import { Fragment, useContext } from "react"
 
 export const Cart = () =>{
-    const {cartProducts} = useContext(CartContext);
+    const {cartProducts,removeItems} = useContext(CartContext);
 
 return (
     <>
@@ -17,11 +17,9 @@ return (
               <h2>{prod.Producto}</h2>
               <img src={prod.Img} ></img>
               <h3>{prod.quantity}</h3>
+              <button onClick={(prod)=>removeItems(prod)}>eliminar producto</button>
               </>
             )
-            
-            
-            
             
             }))}
            
