@@ -1,0 +1,18 @@
+.CartImg{
+    object-fit: cover;
+}
+
+.cartButtonController{
+    margin: 5px;
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5px;
+}
+
+
+.cartController{
+    display: flex;
+    margin-top: 10px;
+
+}
