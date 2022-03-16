@@ -8,8 +8,9 @@
     display: flex;
     flex-direction: row;
     justify-content: first baseline;
-    background-color: black;
+    background-color: #222;
     height: 80px;
+    
    
    
 }

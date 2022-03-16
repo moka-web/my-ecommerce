@@ -12,7 +12,7 @@ export const ItemList = ({Productos}) =>{
         {
 
         Productos.length!==0?Productos.map((prods)=>(<Item className="col-md-4" {...prods} key={prods.id} />))
-        :<h1>Loading...</h1>
+        :<h1 className="Loader">Loading...</h1>
 
         }
           

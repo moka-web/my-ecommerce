@@ -26,10 +26,7 @@ export const ItemDetailContainer = ()=>{
         getSelectedProduct()
      },[id])
 
-
-
-
-
+     
     return(
         <div>
             <ItemDetail {...myDetail} />
