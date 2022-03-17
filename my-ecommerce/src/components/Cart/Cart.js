@@ -2,9 +2,9 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import { CartContext } from "../../Context/cartContext"
-import {useContext, useState } from "react"
+import {useContext, useEffect, useState } from "react"
 import  './Cart.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
 import { CartForm } from '../Form/CartForm'
 import { addDoc, collection, Timestamp } from 'firebase/firestore'
@@ -15,10 +15,9 @@ export const Cart = () =>{
     const {cartProducts,removeItems,clearCart,finalPrice} = useContext(CartContext);
     const[order,setorder] = useState()
     const[orderRef,setOrderRef] = useState()
-
+    
     const sendOrder = async (e)=>{
-        e.preventDefault();
-      
+        e.preventDefault()
         let order = {
             buyer:{
                 name:e.target[0].value,
@@ -31,9 +30,7 @@ export const Cart = () =>{
             total:finalPrice,
 
         }
-
         setorder(order)
-
         try {
             const queryCollection = collection(db,'orders')
             const docRef = await addDoc(queryCollection,order)
@@ -43,16 +40,19 @@ export const Cart = () =>{
         } catch (error) {
             console.log('error',error)
         }
+
+        setTimeout(()=>{
+            clearCart()
+        },500)
     } 
 
 
-    console.log(order);
-    console.log(orderRef)
+  
 
   
 return (
     <>
-        <div className='container'>
+        {orderRef?(<div className='container'><h1>Su compra ha sido procesada.</h1><h2> codigo de seguimiento:{orderRef}</h2></div>) : ( <div className='container'> 
             <div className='row cartController'>
                 {cartProducts.length === 0 ? (<h2 className='cartEmpty'>No hay productos agregados! <Link to={"/"}>
                     
@@ -78,10 +78,9 @@ return (
 
 
                     }))}
-            </div>    
-        </div>
-        {cartProducts.length>0 &&        
-        (   <div className='cartButtonController'>
+            </div>
+            {cartProducts.length>0 &&        
+            (  <div className='cartButtonController'>
                 <button className=' clearCartButton btn btn-danger' onClick={clearCart}>vaciar carrito</button>    
                 <div className='btn btn-warning'>Precio Total: ${finalPrice}</div>
                 <Link to={"/"}>
@@ -93,9 +92,12 @@ return (
                     <input type='number' placeholder='Telefono'/>
                     <button type='submit'>enviar</button>
                 </form>
-            </div>) 
-        }
-        
+            </div>)
+        }    
+        </div>
+       
+        )}
+       
     </>
 )
 
