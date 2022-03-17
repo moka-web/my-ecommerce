@@ -2,22 +2,23 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import { CartContext } from "../../Context/cartContext"
-import {useContext } from "react"
+import {useContext, useState } from "react"
 import  './Cart.css'
 import { Link } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
 import { CartForm } from '../Form/CartForm'
 import { addDoc, collection, Timestamp } from 'firebase/firestore'
 import db from '../../Services/Firebase'
+import Swal from 'sweetalert2'
 
 export const Cart = () =>{
     const {cartProducts,removeItems,clearCart,finalPrice} = useContext(CartContext);
-
+    const[order,setorder] = useState()
+    const[orderRef,setOrderRef] = useState()
 
     const sendOrder = async (e)=>{
         e.preventDefault();
-        console.log(e.target[0].value)
-            
+      
         let order = {
             buyer:{
                 name:e.target[0].value,
@@ -28,27 +29,27 @@ export const Cart = () =>{
             date:Timestamp.fromDate(new Date()),
             items:cartProducts,
             total:finalPrice,
+
         }
 
-        const queryCollection = collection(db,'orders')
-        console.log('order',order)
+        setorder(order)
 
         try {
+            const queryCollection = collection(db,'orders')
             const docRef = await addDoc(queryCollection,order)
-            console.log('docref',docRef.id)
+            const docRefId = docRef.id
+            setOrderRef(docRefId)
+
         } catch (error) {
             console.log('error',error)
         }
-        
     } 
 
 
+    console.log(order);
+    console.log(orderRef)
 
-
-
-
-    
-
+  
 return (
     <>
         <div className='container'>
@@ -86,14 +87,15 @@ return (
                 <Link to={"/"}>
                     <button className='btn btn-success'>Seguir comprando!</button>
                 </Link>
+                <form onSubmit={sendOrder}>
+                    <input type='text' placeholder='Nombre'/>
+                    <input type='email' placeholder='Email'/>
+                    <input type='number' placeholder='Telefono'/>
+                    <button type='submit'>enviar</button>
+                </form>
             </div>) 
         }
-        <form onSubmit={sendOrder}>
-            <input type='text' placeholder='Nombre'/>
-            <input type='email' placeholder='Email'/>
-            <input type='number' placeholder='Telefono'/>
-            <button type='submit'>enviar</button>
-        </form>
+        
     </>
 )
 

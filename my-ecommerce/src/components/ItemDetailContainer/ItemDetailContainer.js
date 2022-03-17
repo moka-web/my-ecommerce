@@ -9,6 +9,7 @@ import db from "../../Services/Firebase"
 export const ItemDetailContainer = ()=>{
 
         const {id} = useParams();
+
         const [myDetail,setMyDetail] = useState()
 
      const getSelectedProduct = async ()=>{
@@ -39,8 +40,7 @@ export const ItemDetailContainer = ()=>{
 
 
 
-
- /*  useEffect(()=>{
+  /* useEffect(()=>{
 
         const getDetail = new Promise ((resolve,reject) =>{
             setTimeout(() => {
@@ -53,7 +53,6 @@ export const ItemDetailContainer = ()=>{
             let getId = details.find( (e)=>{
                 return e.id === Number(id)
             })
-
             setMyDetail(getId);
         })
         },[id])*/

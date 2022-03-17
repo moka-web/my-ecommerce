@@ -16,12 +16,14 @@ function App() {
       <BrowserRouter>
           <div className="App">
           <Navbar/>
+
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/category/:Tipo' element={<ItemListContainer/>}/>
               <Route path='/item/:id' element={<ItemDetailContainer/>}/>
               <Route path='/cart' element={<Cart/>}/>
             </Routes>
+            
           </div> 
         </BrowserRouter>
     </CartProvider>

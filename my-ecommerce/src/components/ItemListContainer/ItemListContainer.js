@@ -60,7 +60,7 @@ export const ItemListContainer = ({greetings}) =>{
         category.Tipo?getCategoryId():getData()
     },[category])
 
-    console.table( "productos" , myProducts);
+  
 
 return (
     <>
