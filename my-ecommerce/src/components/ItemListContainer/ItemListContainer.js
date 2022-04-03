@@ -11,26 +11,6 @@ export const ItemListContainer = ({greetings}) =>{
     const [myProducts,setMyProducts] = useState([]);
 
 
-   /* const getProductos = new Promise ((resolve, reject)=>{
-        setTimeout(() => {
-            resolve(Productos)
-        },2000);
-      
-    })
-
-    useEffect(()=>{
-    getProductos.then((data)=>{
-        if (category.Tipo == undefined) {
-            setMyProducts(data)
-        }else{
-            let filter = data.filter(e=>e.Tipo == category.Tipo)
-            setMyProducts(filter);
-        }
-       
-    })
-    .catch(error=>{console.log(error)}) 
-    
-    },[myProducts])*/
 
     const getData = async () =>{
         try {
@@ -78,3 +58,26 @@ return (
 )
 
 }
+
+
+
+   /* const getProductos = new Promise ((resolve, reject)=>{
+        setTimeout(() => {
+            resolve(Productos)
+        },2000);
+      
+    })
+
+    useEffect(()=>{
+    getProductos.then((data)=>{
+        if (category.Tipo == undefined) {
+            setMyProducts(data)
+        }else{
+            let filter = data.filter(e=>e.Tipo == category.Tipo)
+            setMyProducts(filter);
+        }
+       
+    })
+    .catch(error=>{console.log(error)}) 
+    
+    },[myProducts])*/

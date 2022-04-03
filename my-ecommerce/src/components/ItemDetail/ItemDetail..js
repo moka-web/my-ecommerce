@@ -3,15 +3,18 @@ import { ItemCount } from "../ItemCount/ItemCount"
 import '../ItemDetail/ItemDetal.css'
 import Button from "react-bootstrap/esm/Button"
 import { CartContext } from "../../Context/cartContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 
 
 export const ItemDetail = ({id,Producto,Tipo,Descripcion,Img,Stock,Precio})=>{
-    const {addItemsToCart,productsCount} = useContext(CartContext);
-   
+
+    const {addItemsToCart} = useContext(CartContext);
+    
+    const [ disableButton, setDisableButton] = useState(false)
     
     const handleItemCount = (e)=>{
-        addItemsToCart({id,Producto,Tipo,Descripcion,Img,Stock,Precio},e)
+        addItemsToCart({id,Producto,Tipo,Descripcion,Img,Stock,Precio},e);
+        setDisableButton(true);
     }
 
    
@@ -30,10 +33,9 @@ export const ItemDetail = ({id,Producto,Tipo,Descripcion,Img,Stock,Precio})=>{
                         <p>{Descripcion}</p>
                         <p>{Stock}</p>
                     </div>
-                    <div className="ItemCount_div">
-
-                    <ItemCount initial={0}  stock={Stock} onAdd={(e)=>handleItemCount(e)}/>
-                    {productsCount>0?(<> <Link to={"/cart"}><Button>Finalizar compra</Button></Link></>):<></>}
+                    <div className="ItemCount_div container">
+                        {!disableButton && <ItemCount initial={0}  stock={Stock} onAdd={(e)=>handleItemCount(e)}/>}
+                        {disableButton &&(<> <Link to={"/cart"}><Button variant="secondary" className="finishBuyButton">Finalizar compra</Button></Link><Link to={"/"}><Button variant="secondary" className="finishBuyButton">Seguir comprando</Button></Link></>)}
                     </div>
                 </div>
             </div>

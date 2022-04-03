@@ -1,10 +1,10 @@
-import {Productos} from "../../Data/Data"
+
 import { useState,useEffect} from "react"
 import { ItemDetail } from "../ItemDetail/ItemDetail."
 import { useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import db from "../../Services/Firebase"
-
+import '../ItemDetailContainer/ItemDetailContainer.css'
 
 export const ItemDetailContainer = ()=>{
 
@@ -25,12 +25,15 @@ export const ItemDetailContainer = ()=>{
 
      useEffect(()=>{
         getSelectedProduct()
-     },[id])
+     })
+
 
      
     return(
         <div>
-            <ItemDetail {...myDetail} />
+
+            {myDetail===undefined?<div className="loaderDetail"><h1>Loading...</h1></div>:<ItemDetail {...myDetail} />}
+            
         </div>
     )
 
@@ -40,7 +43,7 @@ export const ItemDetailContainer = ()=>{
 
 
 
-  /* useEffect(()=>{
+  /*useEffect(()=>{
 
         const getDetail = new Promise ((resolve,reject) =>{
             setTimeout(() => {
@@ -55,4 +58,4 @@ export const ItemDetailContainer = ()=>{
             })
             setMyDetail(getId);
         })
-        },[id])*/
+        },[id]) */

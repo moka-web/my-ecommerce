@@ -1,0 +1,42 @@
+
+.FooterStyles{
+    height: 300px;
+    background-color:  #222;
+    margin-bottom: 0;
+}
+
+.FooterTitle{
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.FooterSpanTitle{
+    color: aliceblue;
+}
+
+.DivTitleFooter{
+    display: flex;
+   flex-direction: column;
+
+}
+
+.SocialMediaFooter{
+    margin-top: 50px;
+    color: aliceblue;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    
+}
+
+.SocialMediaImg{
+    width: 30px;
+    height: 30px;
+}
+
+.PFooter{
+    color: aliceblue;
+}

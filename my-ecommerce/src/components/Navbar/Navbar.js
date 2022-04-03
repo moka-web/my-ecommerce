@@ -1,5 +1,5 @@
 import './Navbar.css'
-import {Carrito} from '../carrito/Carrito';
+import {CartWidget} from '../CartWidget/CartWidget';
 import { NavLink,Link } from 'react-router-dom';
 import { CartContext } from '../../Context/cartContext';
 import { useContext } from 'react';
@@ -31,7 +31,7 @@ export const Navbar = () =>{
                
             </ul>
             <Link to={"/cart"}>
-            <Carrito count={productsCount}/>
+            <CartWidget count={productsCount}/>
             </Link> 
         </nav>
     </header>

@@ -16,12 +16,17 @@
 }
 
 .ItemCount_div{
-    margin-top: 100px;
+    margin: 65px;
 
 }
 
 .ItemDescription_div{
     margin: 30px;
 
+}
+
+.finishBuyButton{
+    margin-top: 30px;
+   margin-right: 95px;
 }
 

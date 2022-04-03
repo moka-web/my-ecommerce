@@ -9,13 +9,14 @@ export const Item = ({id,Producto,Tipo,Img,Stock,Descripcion})=> {
         
         <>
         
-        <Card className="CardItem shadow" style={{ width: '18rem',  }}>
-            <Card.Img variant="top" src={Img} />
+        <Card className="CardItem " style={{ width: '18rem',  }}>
+
+            <Card.Img variant="top"  className="ImgItem" src={Img} />
             <Card.Body>
-                <NavLink to={`/item/${id}`}>
+                <NavLink  className="itemLink" to={`/item/${id}`}>
                 <Card.Title>{Producto}</Card.Title>
-                </NavLink>
                 <Card.Title>{Tipo}</Card.Title>
+                </NavLink>
             </Card.Body>
            
         </Card>

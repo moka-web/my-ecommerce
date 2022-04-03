@@ -1,8 +1,23 @@
-img{
-    width: 200px;
-    height: 400px;
-   object-fit: cover;
-}
+
+
+
 .CardItem{
     margin: 30px;
+}
+
+
+.ImgItem{
+    align-self: center;
+    width: 18rem;
+    height: 400px;
+    object-fit: cover;
+}
+
+.itemLink{
+    text-decoration: none;
+    color: black;
+}
+
+.itemLink :hover{
+    color:gray
 }
