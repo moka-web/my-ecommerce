@@ -6,10 +6,12 @@ import './Carrito.css'
 export const CartWidget = ({count}) =>{
     const {productsCount} = useContext(CartContext);
     return(
-        <div className=" CartWidget">
-            <img src={carrito} className="cart" alt='img'/>
-            {productsCount > 0 &&  <span className='spanCount'>{count}</span> } 
-        </div>
+
+        <>
+        <img src={carrito} className="cart" alt='img'/>
+            {productsCount > 0 &&  <span className='spanCount'>{count}</span> }
+        </>
+        
     )
 
 }

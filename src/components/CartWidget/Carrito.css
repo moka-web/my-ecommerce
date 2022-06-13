@@ -1,0 +1,11 @@
+
+
+.spanCount{
+    color: aliceblue;
+    z-index: 2;
+}
+
+.cart{
+    width: 2rem;
+    height: 2rem;
+}

@@ -17,3 +17,5 @@ return(
 )
 
 }
+
+//<img className="imgHome" alt="img" src="https://ruybangtim.com/wp-content/uploads/2016/05/background_stakan_kubiki_ice_alcohol_drink_ultra_3840x2160_hd-wallpaper-233149.jpg"></img>
